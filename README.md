@@ -8,14 +8,15 @@ Docker image of amazonlinux with [opencascade](https://git.dev.opencascade.org/g
 
 Available tags:
 
-- 2-occt-v7_4_0-cgal-14.4.1-node-8  (node-8)
-- 2-occt-v7_4_0-cgal-14.4.1-node-10 (node-10)
-- 2-occt-v7_4_0-cgal-14.4.1-node-11 (node-11)
-- 2-occt-v7_4_0-cgal-14.4.1-node-12 (node-12)
-- 2-occt-v7_3_0p3-cgal-14.4.1-node-8
-- 2-occt-v7_3_0p3-cgal-14.4.1-node-10
-- 2-occt-v7_3_0p3-cgal-14.4.1-node-11
-- 2-occt-v7_3_0p3-cgal-14.4.1-node-12
+- 2-occt-V7_4_0-cgal-14.4.1-node-8  (node-8)
+- 2-occt-V7_4_0-cgal-14.4.1-node-10 (node-10)
+- 2-occt-V7_4_0-cgal-14.4.1-node-11 (node-11)
+- 2-occt-V7_4_0-cgal-14.4.1-node-12 (node-12)
+
+- 2-occt-V7_3_0p3-cgal-14.4.1-node-8
+- 2-occt-V7_3_0p3-cgal-14.4.1-node-10
+- 2-occt-V7_3_0p3-cgal-14.4.1-node-11
+- 2-occt-V7_3_0p3-cgal-14.4.1-node-12
 
 ## License
 
