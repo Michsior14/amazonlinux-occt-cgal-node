@@ -9,8 +9,10 @@ ARG occt_version
 ARG cgal_version
 
 RUN yum update -y \
-  && yum install -y gcc-c++ make cmake3 git gmp-devel mpfr-devel \ 
-  boost-devel tcl-devel tk-devel mesa-libGL-devel libXmu-devel libXi-devel \
+  && curl -sL https://rpm.nodesource.com/setup_$node_version.x | bash - \
+  && curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo \
+  && yum install -y gcc-c++ make cmake3 git gmp-devel mpfr-devel nodejs \ 
+  boost-devel tcl-devel tk-devel mesa-libGL-devel libXmu-devel libXi-devel yarn \
   && git config --global core.compression 0 \
   && cd / \
   && git clone --depth=1 --branch=releases/CGAL-$cgal_version https://github.com/CGAL/cgal.git \
@@ -29,9 +31,6 @@ RUN yum update -y \
   && make -j4 install \
   && cd / \
   && rm -rf /occt \
-  && yum remove gmp-devel mpfr-devel boost-devel \ 
+  && yum remove -y gmp-devel mpfr-devel boost-devel \ 
   tcl-devel tk-devel mesa-libGL-devel libXmu-devel libXi-devel \
-  && yum autoremove \
-  && curl -sL https://rpm.nodesource.com/setup_$node_version.x | bash - \
-  && curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo \
-  && yum install -y nodejs yarn
+  && yum autoremove -y
