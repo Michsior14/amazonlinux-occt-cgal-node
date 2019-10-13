@@ -1,0 +1,16 @@
+language: bash
+services: docker
+
+env:
+  - NODE_VERSION="8" AMAZONLINUX_VERSION="2" OCCT_VERSION="V7_3_0p3" CGAL_VERSION="4.14.1"
+  - NODE_VERSION="10" AMAZONLINUX_VERSION="2" OCCT_VERSION="V7_3_0p3" CGAL_VERSION="4.14.1"
+  - NODE_VERSION="11" AMAZONLINUX_VERSION="2" OCCT_VERSION="V7_3_0p3" CGAL_VERSION="4.14.1"
+  - NODE_VERSION="12" AMAZONLINUX_VERSION="2" OCCT_VERSION="V7_3_0p3" CGAL_VERSION="4.14.1"
+
+script: bash ./scripts/build.sh
+
+deploy:
+  provider: script
+  script: bash ./scripts/push.sh
+  on:
+    branch: master
