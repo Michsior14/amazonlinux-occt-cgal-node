@@ -1,6 +1,6 @@
 ARG amazonlinux_version=2
 ARG node_version=10
-ARG occt_version=7.5.0
+ARG occt_version=7.5.2
 ARG cgal_version=5.2
 
 FROM continuumio/miniconda3:latest as conda
