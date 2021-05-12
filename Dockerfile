@@ -16,7 +16,7 @@ ARG conda_path=/opt/conda
 
 RUN curl -sL https://rpm.nodesource.com/setup_$node_version.x | bash - \
   && curl -sL https://dl.yarnpkg.com/rpm/yarn.repo | tee /etc/yum.repos.d/yarn.repo \
-  && yum install -y gcc-c++ make nodejs yarn
+  && yum install -y gcc-c++ make nodejs yarn python3
 
 COPY --from=conda $conda_path/include $conda_path/include
 COPY --from=conda $conda_path/lib $conda_path/lib
