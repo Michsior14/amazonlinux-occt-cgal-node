@@ -1,5 +1,5 @@
 ARG amazonlinux_version=2
-ARG node_version=14
+ARG node_version=16
 ARG occt_version=7.5.2
 ARG cgal_version=5.2.1
 
