@@ -53,5 +53,5 @@ jobs:
           tags: |
             michaukrieg/${{ env.IMAGE_NAME }}:node-${{matrix.node}}
             michaukrieg/${{ env.IMAGE_NAME }}:${{ env.AMAZONLINUX_VERSION }}-occt-${{ env.OCCT_VERSION }}-cgal-${{ env.CGAL_VERSION }}-node-${{ matrix.node }}
-            ghcr.io/Michsior14/${{ env.IMAGE_NAME }}:node-${{matrix.node}}
-            ghcr.io/Michsior14/${{ env.IMAGE_NAME }}:${{ env.AMAZONLINUX_VERSION }}-occt-${{ env.OCCT_VERSION }}-cgal-${{ env.CGAL_VERSION }}-node-${{ matrix.node }}
+            ghcr.io/michsior14/${{ env.IMAGE_NAME }}:node-${{matrix.node}}
+            ghcr.io/michsior14/${{ env.IMAGE_NAME }}:${{ env.AMAZONLINUX_VERSION }}-occt-${{ env.OCCT_VERSION }}-cgal-${{ env.CGAL_VERSION }}-node-${{ matrix.node }}
