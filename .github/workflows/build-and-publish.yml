@@ -1,0 +1,57 @@
+name: Build and publish
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  push:
+    branches: [master]
+
+env:
+  IMAGE_NAME: amazonlinux-occt-cgal-node
+  AMAZONLINUX_VERSION: 2
+  OCCT_VERSION: 7.6.0
+  CGAL_VERSION: 5.3
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    strategy:
+      matrix:
+        node: [12, 14, 16]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          build-args: |
+            node_version=${{ matrix.node }}
+            amazonlinux_version=${{ env.AMAZONLINUX_VERSION }}
+            occt_version=${{ env.OCCT_VERSION }}
+            cgal_version=${{ env.CGAL_VERSION }}
+          tags: |
+            michaukrieg/${{ env.IMAGE_NAME }}:node-${{matrix.node}}
+            michaukrieg/${{ env.IMAGE_NAME }}:${{ env.AMAZONLINUX_VERSION }}-occt-${{ env.OCCT_VERSION }}-cgal-${{ env.CGAL_VERSION }}-node-${{ matrix.node }}
+            ghcr.io/Michsior14/${{ env.IMAGE_NAME }}:node-${{matrix.node}}
+            ghcr.io/Michsior14/${{ env.IMAGE_NAME }}:${{ env.AMAZONLINUX_VERSION }}-occt-${{ env.OCCT_VERSION }}-cgal-${{ env.CGAL_VERSION }}-node-${{ matrix.node }}
