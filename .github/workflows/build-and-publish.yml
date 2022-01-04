@@ -10,7 +10,7 @@ env:
   IMAGE_NAME: amazonlinux-occt-cgal-node
   AMAZONLINUX_VERSION: 2
   OCCT_VERSION: 7.6.0
-  CGAL_VERSION: 5.3
+  CGAL_VERSION: 5.3.1
 
 jobs:
   build:
