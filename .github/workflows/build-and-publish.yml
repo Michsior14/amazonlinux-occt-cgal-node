@@ -10,7 +10,7 @@ env:
   IMAGE_NAME: amazonlinux-occt-cgal-node
   AMAZONLINUX_VERSION: 2
   OCCT_VERSION: 7.6.0
-  CGAL_VERSION: 5.3.1
+  CGAL_VERSION: 5.4
 
 jobs:
   build:
@@ -21,7 +21,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [12, 14, 16]
+        node: [14, 16]
 
     steps:
       - name: Checkout repository
