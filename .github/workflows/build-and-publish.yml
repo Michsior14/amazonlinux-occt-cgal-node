@@ -9,7 +9,7 @@ on:
 env:
   IMAGE_NAME: amazonlinux-occt-cgal-node
   AMAZONLINUX_VERSION: 2
-  OCCT_VERSION: 7.6.1
+  OCCT_VERSION: 7.6.2
   CGAL_VERSION: 5.4
 
 jobs:
